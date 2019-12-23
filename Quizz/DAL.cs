@@ -13,23 +13,48 @@ namespace Quizz
         /// </summary>
         /// <returns></returns>
 
-         public static List<QCM> GetQCM()
-         {
+        public static List<QCM> GetQCM()
+        {
             // Création d'une liste pour stocker les données
-            var questionsRéponses = new List<QCM>();
+            var questionsPropositions = new List<QCM>();
 
             // Chargement des lignes du fichier dans un tableau
             string[] lignes = File.ReadAllLines(CHEMIN_FICHIER);
 
+
+
+
+
             // Chargement des données dans la liste
             for (int i = 0; i < lignes.Length; i++)
             {
-                var qcm = new QCM(lignes[i]);
-                questionsRéponses.Add(qcm);
+                QCM qcm = null;
+            
+                if (lignes[i].Substring(0, 8) == "Question")
+                {
+
+                    qcm = new QCM();
+                    qcm.Question = lignes[i];
+
+                }
+
+                else if (lignes[i].Length == 0)
+                {
+
+                }
+
+                else
+                {
+                    qcm.Propositions.Add(lignes[i]);
+                    
+                }
+                
+                questionsPropositions.Add(qcm);
+
             }
 
-            return questionsRéponses;
-         }
+            return questionsPropositions;
+        }
 
     }
 }

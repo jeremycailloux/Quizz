@@ -16,24 +16,19 @@ namespace Quizz
            // VisualiserFichier();
            //Console.ReadLine();
 
-            List<QCM> qcm = DAL.GetQCM();
-            foreach (var q in qcm) Console.WriteLine(q.Lignes);
+            List<QCM> qcms = DAL.GetQCM();
+            foreach (var q in qcms) Console.WriteLine(q);
 
         }
 
-        /*
-        private static void VisualiserFichier()
+        
+
+
+       /* private static void VisualiserFichier()
         {
             string[] lignes = File.ReadAllLines(@"..\..\..\QCM.txt");
-
-            Console.WriteLine();
-            QCM qcm;
-            for (int i = 1; i < lignes.Length; i++);
-            {
-                qcm = new QCM (lignes[i]);
-                Console.WriteLine(qcm);
-        }
-        */
+                                                  
+        }*/
         
     }
 }
