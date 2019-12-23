@@ -24,13 +24,11 @@ namespace Quizz
 
 
 
-
+                QCM qcm = null;
             // Chargement des données dans la liste
             for (int i = 0; i < lignes.Length; i++)
             {
-                QCM qcm = null;
-            
-                if (lignes[i].Substring(0, 8) == "Question")
+                if (lignes[i].Length >= 8 && lignes[i].Substring(0, 8) == "Question")
                 {
 
                     qcm = new QCM();
@@ -40,16 +38,19 @@ namespace Quizz
 
                 else if (lignes[i].Length == 0)
                 {
-
+                    questionsPropositions.Add(qcm);
                 }
 
                 else
                 {
+                    if (lignes[i].Substring(0,1) == "*")
+                    {
+                        lignes[i] = lignes[i].Substring(1);
+                        qcm.BonneRéponse += lignes[i].Substring(0,1);
+                    }
                     qcm.Propositions.Add(lignes[i]);
                     
                 }
-                
-                questionsPropositions.Add(qcm);
 
             }
 

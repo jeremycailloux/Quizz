@@ -12,6 +12,7 @@ namespace Quizz
 
         public List<string> Propositions { get; set; }
 
+        public string BonneRéponse { get; set; }
 
 
         public QCM()
@@ -22,15 +23,14 @@ namespace Quizz
 
 
         public override string ToString()
-        { string prop = "";
+        { 
+            string prop = "";
             for (int i = 0; i < Propositions.Count; i++)
             {
-               prop += Propositions[i];
+               prop += Propositions[i] + "\n";
             }
 
-
-
-            return Question + prop ;
+            return Question + "\n" + prop;
         }
 
     }
