@@ -22,19 +22,18 @@ namespace Quizz
 
 
         public override string ToString()
-        {
-            return Question;
+        { string prop = "";
+            for (int i = 0; i < Propositions.Count; i++)
+            {
+               prop += Propositions[i];
+            }
+
+
+
+            return Question + prop ;
         }
+
     }
 
-
-
-
-
-
-
-
-
-
+    
 }
-
