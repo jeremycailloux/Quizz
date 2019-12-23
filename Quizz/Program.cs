@@ -13,11 +13,11 @@ namespace Quizz
             Console.WriteLine("Saisissez votre Prénom");
             string prenom = Console.ReadLine();
 
-            //VisualiserFichier();
+           // VisualiserFichier();
             //Console.ReadLine();
 
             List<QCM> qcm = DAL.GetQCM();
-            foreach (var q in qcm) Console.WriteLine(q.ToString());
+            foreach (var q in qcm) Console.WriteLine(q._lignes);
 
         }
 

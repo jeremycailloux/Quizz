@@ -22,7 +22,7 @@ namespace Quizz
             string[] lignes = File.ReadAllLines(CHEMIN_FICHIER);
 
             // Chargement des données dans la liste
-            for (int i = 1; i < lignes.Length; i++)
+            for (int i = 0; i < lignes.Length; i++)
             {
                 var qcm = new QCM(lignes[i]);
                 questionsRéponses.Add(qcm);
