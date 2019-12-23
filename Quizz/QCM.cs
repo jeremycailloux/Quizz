@@ -9,39 +9,32 @@ namespace Quizz
 
         private string _ligne;
         public string Question { get; set; }
-        
-        public List<string> Propositions { get; set; }  
+
+        public List<string> Propositions { get; set; }
 
 
-      
+
         public QCM()
         {
+
             Propositions = new List<string>();
         }
 
 
         public override string ToString()
         {
-            return base.ToString(Question, );
+            return Question;
         }
-
-
-
-
-
-
-
-
     }
 
-       
-
-        
 
 
 
 
 
 
-    }
+
+
+
 }
+
