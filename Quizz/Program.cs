@@ -18,10 +18,11 @@ namespace Quizz
 
             List<QCM> qcms = DAL.GetQCM();
             foreach (var q in qcms) Console.WriteLine(q);
-
         }
 
+
         
+
 
 
        /* private static void VisualiserFichier()
