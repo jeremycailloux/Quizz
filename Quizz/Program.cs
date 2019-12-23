@@ -14,17 +14,26 @@ namespace Quizz
             string prenom = Console.ReadLine();
 
            // VisualiserFichier();
-            //Console.ReadLine();
+           //Console.ReadLine();
 
             List<QCM> qcm = DAL.GetQCM();
-            foreach (var q in qcm) Console.WriteLine(q._lignes);
+            foreach (var q in qcm) Console.WriteLine(q.Lignes);
 
         }
 
+        /*
         private static void VisualiserFichier()
         {
-            string[] lignes = File.ReadAllLines(@"..\..\..\QCM.txt");                                     
+            string[] lignes = File.ReadAllLines(@"..\..\..\QCM.txt");
+
+            Console.WriteLine();
+            QCM qcm;
+            for (int i = 1; i < lignes.Length; i++);
+            {
+                qcm = new QCM (lignes[i]);
+                Console.WriteLine(qcm);
         }
+        */
         
     }
 }
