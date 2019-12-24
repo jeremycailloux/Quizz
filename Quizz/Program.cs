@@ -8,10 +8,13 @@ namespace Quizz
     {
         static void Main()
         {
-            // Console.WriteLine("Saisissez votre Nom");
-            // string nom = Console.ReadLine();
-            // Console.WriteLine("Saisissez votre Prénom");
-            // string prenom = Console.ReadLine();
+            Console.WriteLine("Saisissez votre Nom");
+            string nom = Console.ReadLine();
+            Console.WriteLine("Saisissez votre Prénom");
+            string prenom = Console.ReadLine();
+
+            Joueur joueur = new Joueur(nom, prenom);
+
 
             // VisualiserFichier();
             //Console.ReadLine();
@@ -72,7 +75,8 @@ namespace Quizz
 
             }
             Console.WriteLine("Votre score est de {0} sur {1}", compteur, qcms.Count);
-
+            joueur.Score = compteur;
+            Console.WriteLine(joueur.Date.ToString() + " " + joueur.Nom + " " + joueur.Prenom + " " + joueur.Score + "/"+ qcms.Count);
         }
 
         
