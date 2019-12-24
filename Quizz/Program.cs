@@ -86,6 +86,26 @@ namespace Quizz
             {
                 touche = Console.ReadKey().KeyChar;
             }
+
+            StreamWriter outputFile = null; //il faut appler la biliothèque de classe avec alt + enter
+
+            try
+            {
+
+                outputFile = new StreamWriter(path, true);
+                outputFile.WriteLine(text);
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            finally
+            {
+                if (outputFile != null) outputFile.Close();
+                Console.WriteLine("Le chemin n'éxiste pas.");
+            }
         }
 
         public static void VerificationFormat(string rep)
@@ -101,6 +121,8 @@ namespace Quizz
 
                 else throw new FormatException("Le format de la réponse n'est pas valide, veuillez resaisir une réponse en lettres majuscules.");
             }
+
         }
-    }
+
+     } 
 }
