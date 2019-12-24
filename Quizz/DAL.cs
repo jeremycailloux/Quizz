@@ -20,10 +20,6 @@ namespace Quizz
 
             // Chargement des lignes du fichier dans un tableau
             string[] lignes = File.ReadAllLines(CHEMIN_FICHIER);
-
-
-
-
             QCM qcm = null;
             // Chargement des données dans la liste
             for (int i = 0; i < lignes.Length; i++)
@@ -35,7 +31,6 @@ namespace Quizz
                     qcm.Question = lignes[i];
 
                 }
-
                 else if (lignes[i].Length == 0)
                 {
                     questionsPropositions.Add(qcm);
@@ -48,17 +43,12 @@ namespace Quizz
                         lignes[i] = lignes[i].Substring(1);
                         qcm.BonneRéponse += lignes[i].Substring(0,1);
                     }
-                    qcm.Propositions.Add(lignes[i]);
-                    
+                    qcm.Propositions.Add(lignes[i]);                   
                 }
-
             }
-
             //Rajoute la dernière question qui n'est pas reconnue car le programme ne considère pas le dernier esapce comme une limite pour l'ajout du dernier 'questionsPropositions'
             questionsPropositions.Add(qcm);
-
             return questionsPropositions;
         }
-
     }
 }

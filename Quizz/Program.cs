@@ -15,19 +15,8 @@ namespace Quizz
 
             Joueur joueur = new Joueur(nom, prenom);
 
-
-
-
-            // VisualiserFichier();
-            //Console.ReadLine();
-
             List<QCM> qcms = DAL.GetQCM();
-
             List<int> indicesErreurs = new List<int>();
-
-            //foreach (var q in qcms) Console.WriteLine(q);
-
-
 
             //instructions données au joueur
             Console.WriteLine("Bienvenue sur le Quizz! \nVeuillez saisir la/les lettre(s) correspondant à/aux réponse(s) en majuscule(s) et sans espaces (ex : AC). \n" +
@@ -35,14 +24,10 @@ namespace Quizz
             Console.ReadLine();
             Console.Clear();
 
-
-
             //On initialise la variable 'compteur' de bonnes réponses à 0
             int compteur = 0;
             for (int i = 0; i < qcms.Count; i++)
             {
-
-
                 //On affiche la question et ses propositions
                 Console.WriteLine(qcms[i]);
                 //on enregistre la chaine de caractères dans la variable réponse
@@ -63,7 +48,6 @@ namespace Quizz
 
                     }
                 }
-
                 //si la réponse du joueur est correcte, on incrémente le compteur de 1
                 if (reponse == qcms[i].BonneRéponse)
                 {
@@ -74,17 +58,13 @@ namespace Quizz
 
             Console.WriteLine("Votre score est de {0} sur {1}", compteur, qcms.Count);
             joueur.Score = compteur;
-
             string repfaux = "";
-
-
             foreach (var item in indicesErreurs)
             {
                 Console.WriteLine(qcms[item]);
                 Console.WriteLine("La bonne réponse était " + qcms[item].BonneRéponse + '\n');
                 repfaux += item + 1 + ",";
             }
-
             Console.Clear();
 
             bool continuer = true;
@@ -101,23 +81,12 @@ namespace Quizz
                 continuer = false;
                 Console.WriteLine("Merci d'avoir joué \n Appuyez sur Q pour quitter l'application");
             }
-
-            /*while (continuer == true)
-            {
-                ConsoleKeyInfo touche = Console.ReadKey();
-                if (touche.Key == ConsoleKey.Q)
-                    continuer = false;
-            }*/
-
             char touche = ' ';
             while (char.ToLower(touche) != 'q')
             {
                 touche = Console.ReadKey().KeyChar;
             }
-
-
         }
-
 
         public static void VerificationFormat(string rep)
         {
@@ -132,16 +101,6 @@ namespace Quizz
 
                 else throw new FormatException("Le format de la réponse n'est pas valide, veuillez resaisir une réponse en lettres majuscules.");
             }
-
-
         }
-
-
-        /* private static void VisualiserFichier()
-         {
-             string[] lignes = File.ReadAllLines(@"..\..\..\QCM.txt");
-
-         }*/
-
     }
 }
