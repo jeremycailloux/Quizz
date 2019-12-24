@@ -7,12 +7,12 @@ namespace Quizz
 {
     class DAL
     {
-        public const string CHEMIN_FICHIER = @"..\..\..\QCM.txt";
+        public const string CHEMIN_FICHIER = @"..\..\..\QCM.txt"; //Indique le chemin d'accès au fichier texte QCM contenant les questions et réponses du QCM
         /// <summary>
-        /// Indique le chemin d'accès au fichier texte QCM contenant les questions et réponses du QCM
+        /// La méthode GetQCM permet d'afficher la liste QCM qui correspond au texte du fichier QCM
+        /// Elle est de type static.
         /// </summary>
         /// <returns></returns>
-
         public static List<QCM> GetQCM()
         {
             // Création d'une liste pour stocker les données
@@ -24,7 +24,7 @@ namespace Quizz
 
 
 
-                QCM qcm = null;
+            QCM qcm = null;
             // Chargement des données dans la liste
             for (int i = 0; i < lignes.Length; i++)
             {

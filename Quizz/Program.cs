@@ -15,7 +15,7 @@ namespace Quizz
 
            // VisualiserFichier();
            //Console.ReadLine();
-
+           
             List<QCM> qcms = DAL.GetQCM();
             foreach (var q in qcms) Console.WriteLine(q);
         }
