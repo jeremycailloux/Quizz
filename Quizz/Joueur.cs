@@ -10,10 +10,14 @@ namespace Quizz
         public string Prenom { get; set; }
         public DateTime Date { get; set; }
         public int Score { get; set; }
-        public int Erreur { get; set; }
+        
             
 
-
+        /// <summary>
+        /// Constructeur de la classe Joueur
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="prenom"></param>
 public Joueur(string nom, string prenom)
         {
             Nom = nom;
