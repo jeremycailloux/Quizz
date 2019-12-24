@@ -16,18 +16,14 @@ namespace Quizz
             Joueur joueur = new Joueur(nom, prenom);
 
 
+
+
             // VisualiserFichier();
             //Console.ReadLine();
 
             List<QCM> qcms = DAL.GetQCM();
 
-            Console.WriteLine("Saisissez votre Nom");
-            string nom = Console.ReadLine();
-            Console.WriteLine("Saisissez votre Prenom");
-            string prenom = Console.ReadLine();
-
-            Joueur joueur = new Joueur(nom, prenom)
-
+            List<int> indicesErreurs = new List<int>();
 
             //foreach (var q in qcms) Console.WriteLine(q);
 
@@ -38,6 +34,8 @@ namespace Quizz
                 "Appuyez sur une touche pour commencer\n");
             Console.ReadLine();
             Console.Clear();
+
+
 
             //On initialise la variable 'compteur' de bonnes réponses à 0
             int compteur = 0;
@@ -50,7 +48,6 @@ namespace Quizz
                 //on enregistre la chaine de caractères dans la variable réponse
                 string reponse = "";
                 bool repOK = false;
-
                 while (!repOK)
                 {
                     try
@@ -72,28 +69,71 @@ namespace Quizz
                 {
                     compteur++;
                 }
-
+                else indicesErreurs.Add(i);
             }
+
             Console.WriteLine("Votre score est de {0} sur {1}", compteur, qcms.Count);
             joueur.Score = compteur;
-            Console.WriteLine(joueur.Date.ToString() + " " + joueur.Nom + " " + joueur.Prenom + " " + joueur.Score + "/"+ qcms.Count);
+
+            string repfaux = "";
+
+
+            foreach (var item in indicesErreurs)
+            {
+                Console.WriteLine(qcms[item]);
+                Console.WriteLine("La bonne réponse était " + qcms[item].BonneRéponse + '\n');
+                repfaux += item + 1 + ",";
+            }
+
+            Console.Clear();
+
+            bool continuer = true;
+            Console.WriteLine("Souhaitez-vous voir vos statistiques? (O/N)");
+            string repstat = Console.ReadLine();
+            if (repstat == "o" || repstat == "O")
+            {
+                Console.WriteLine(joueur.Date.ToString() + " " + joueur.Nom + " " + joueur.Prenom + " " + joueur.Score + "/" + qcms.Count + " " + repfaux);
+                Console.WriteLine();
+                Console.WriteLine("Merci d'avoir joué \n Appuyez sur Q pour quitter l'application");
+            }
+            else
+            {
+                continuer = false;
+                Console.WriteLine("Merci d'avoir joué \n Appuyez sur Q pour quitter l'application");
+            }
+
+            /*while (continuer == true)
+            {
+                ConsoleKeyInfo touche = Console.ReadKey();
+                if (touche.Key == ConsoleKey.Q)
+                    continuer = false;
+            }*/
+
+            char touche = ' ';
+            while (char.ToLower(touche) != 'q')
+            {
+                touche = Console.ReadKey().KeyChar;
+            }
+
+
         }
 
-        
+
         public static void VerificationFormat(string rep)
-        {  char valeur;
+        {
+            char valeur;
             for (int i = 0; i < rep.Length; i++)
             {
                 valeur = rep[i];
                 if (valeur > 64 && valeur < 91)
                 {
-                
+
                 }
 
                 else throw new FormatException("Le format de la réponse n'est pas valide, veuillez resaisir une réponse en lettres majuscules.");
             }
 
-           
+
         }
 
 
