@@ -29,7 +29,7 @@ namespace Quizz
             Console.ReadLine();
             Console.Clear();
 
-                //On initialise la variable 'compteur' de bonnes réponses à 0
+            //On initialise la variable 'compteur' de bonnes réponses à 0
             int compteur=0;
             for (int i = 0; i < qcms.Count; i++)
             {
