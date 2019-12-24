@@ -18,6 +18,13 @@ namespace Quizz
 
             List<QCM> qcms = DAL.GetQCM();
 
+            Console.WriteLine("Saisissez votre Nom");
+            string nom = Console.ReadLine();
+            Console.WriteLine("Saisissez votre Prenom");
+            string prenom = Console.ReadLine();
+
+            Joueur joueur = new Joueur(nom, prenom)
+
 
             //foreach (var q in qcms) Console.WriteLine(q);
 
@@ -79,7 +86,7 @@ namespace Quizz
                 
                 }
 
-               else throw new FormatException("Le format de la réponse n'est pas valide, veuillez resaisir une réponse en lettres majuscules.");
+                else throw new FormatException("Le format de la réponse n'est pas valide, veuillez resaisir une réponse en lettres majuscules.");
             }
 
            
