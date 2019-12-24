@@ -54,6 +54,9 @@ namespace Quizz
 
             }
 
+            //Rajoute la dernière question qui n'est pas reconnue car le programme ne considère pas le dernier esapce comme une limite pour l'ajout du dernier 'questionsPropositions'
+            questionsPropositions.Add(qcm);
+
             return questionsPropositions;
         }
 
